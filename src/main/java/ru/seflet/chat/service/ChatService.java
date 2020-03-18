@@ -35,4 +35,8 @@ public class ChatService {
         chat.getMembers().add(admin);
         return chatRepository.save(chat);
     }
+
+    public void deleteChat(Chat chat) {
+        chatRepository.delete(chat);
+    }
 }
