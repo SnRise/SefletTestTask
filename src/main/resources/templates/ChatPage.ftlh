@@ -29,8 +29,8 @@
             </form>
         </div>
         <div class="addUser">
-            <form method="post" action="${chat.id}/addUser">
-                <input type="hidden" name="action" value=""/>
+            <form method="post" action="${chat.id}//addUser">
+                <input type="hidden" name="_method" value="addUser"/>
                 <div class="field">
                     <div class="name">
                         <label for="login">Login of adding user</label>
@@ -39,9 +39,7 @@
                         <input autofocus id="login" name="login" value=""/>
                     </div>
                 </div>
-                <div class="button-field">
-                    <input type="submit" value="Add user">
-                </div>
+                <input type="submit" value="Add user">
             </form>
         </div>
     </#if>

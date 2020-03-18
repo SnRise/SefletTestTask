@@ -33,6 +33,7 @@ public class ChatService {
         chat.setAdminId(adminId);
         User admin = userService.findById(adminId);
         chat.getMembers().add(admin);
+        admin.getChats().add(chat);
         return chatRepository.save(chat);
     }
 

@@ -51,16 +51,17 @@ public class ChatPage extends Page {
         User admin = getUser(httpSession);
         if (chat.getAdminId() != admin.getId()) {
             putMessage(httpSession, "You are not admin!");
-            return "redirect:/chat" + id;
+            return "redirect:/chat/" + id;
         }
         User user = userService.findByLogin(userCredentials.getLogin());
         if (user == null) {
             putMessage(httpSession, "Can't find user.");
-            return "redirect:/chat" + id;
+            return "redirect:/chat/" + id;
         }
         chat.getMembers().add(user);
         user.getChats().add(chat);
-        return "redirect:/chat" + id;
+        userService.updateUser(user);
+        return "redirect:/chat/" + id;
     }
 
     @PostMapping("chat/{id}")
